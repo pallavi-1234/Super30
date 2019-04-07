@@ -1,0 +1,34 @@
+public static Node low(Node head)
+    {
+        // empty list
+      if(head==null) {
+    	  return null;
+      }
+      
+       Node prev= head;
+       Node curr= head.next;
+       while(curr!=null) {
+       if(curr.data<prev.data) {
+    	   int temp= prev.data;
+    	   prev.data=curr.data;
+    	   curr.data=temp;
+       }
+      
+      if(curr.next!=null && curr.next.data> curr.data) {
+    	  int temp= curr.next.data;
+    	  curr.next.data=curr.data;
+    	  curr.data=temp;
+      }
+      
+      if(curr.next==null) {
+    	  break;
+      }
+      prev=curr.next;
+      
+      curr=curr.next.next;
+      
+      
+     
+    }
+       return head;
+    }
